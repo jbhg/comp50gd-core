@@ -1,0 +1,53 @@
+ReadMe for CORE
+
+by Joel Greenberg, Andre Govier, Paul Alvarez, Brendan Blaney, and Evan Powell
+
+==========
+
+GAME CONTROLS
+
+Arrow Keys - Controls the player's ship.
+Space Bar - Fires shots at opponents' ships.
+'P' - Pauses / Unpauses game.
+'K' - Clears the array of BattleStuff objects (hack, intended for testing).
+'L' - Launches a new opponent ship (hack).
+'E' - Kills the first ship in the ArrayList of EnemyShips (hack).
+
+==========
+
+GAME OBJECT
+
+To score a high score, to not die, and to kill some aliens!
+
+=========
+
+FEATURES
+
+
+
+=========
+
+ERRORS / To-Do (none will be deleted from this list--their solutions will be added below for reference).
+
+1. 'Pause' comes miracoulously unpaused upon the level ending.
+2. Ships come off of the battle carrier eratically. The mapping of milliseconds to ship does not act as we expect.
+3. No ships demonstrate acceleration.
+4. No ships demonstrate a value r such that r is their overall velocity. Currently, a dx and dy are independent of one another and thus diagonal movement is faster than single direction.
+5. Ships may 'overlap' and do not bounce off of each other. This is unrealistic.
+6a. In ScrollingGamePanelOnePlayer, the method "private void loadNewSprites()" populates a list each iteration, then checks to see if it is null. Ideally, a list would not need to be populated each time.
+6a1. With a fix as discussed in the comments, now the list sometimes returns null, even when it should not. This is unclear.
+6b. In abstract class Level, "public synchronized Collection<GameSprite> unloadAllSprites(double timestamp)" uses a one-by-one pull of the ships needed, without regard for the efficiency that may be provided by a native method to the TreeMap structure.
+
+==============
+
+Fixes for Second Iteration:
+
+1. Scrolling Background: There is now a background on each level, which moves as if the player is traveling.
+1b. Layered scrolling background: On the second and third levels, there are overlays which simulate layering. If you look carefully, there may be enemies hiding beneath the clouds...
+1c. 'Stagnant' ships on scrolling background: Some ships are written to correspond to the background instead of the foreground--they may hide beneath the scenery in each level.
+2. Multiple levels implemented: three levels are well-defined.
+3. More ships created.
+3a. More bullets and non-linear actions for sprites: some ships explode and release "schrapnel"; some bullets do the same.
+4. Sounds created for more levels: an additional sound was created by Paul.
+
+
